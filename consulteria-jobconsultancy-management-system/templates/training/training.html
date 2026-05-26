@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="training-container">
+
+    <!-- Page Title -->
+    <h1 class="page-title">Available Job Training & Consultations</h1>
+    <p class="page-subtitle">
+        Choose a session to get professional guidance for your career growth.
+    </p>
+
+    <!-- Static Training Cards -->
+    <div class="training-grid">
+        <div class="training-card">
+            <h3>Resume Review & Optimization</h3>
+            <p class="desc">Get your resume screened and improved to increase interview calls.</p>
+            <a href="{% url 'booking' %}" class="btn">Book Session</a>
+        </div>
+
+        <div class="training-card">
+            <h3>Interview Preparation</h3>
+            <p class="desc">Mock interviews + expert tips to ace your next interview.</p>
+            <a href="{% url 'booking' %}" class="btn">Book Session</a>
+        </div>
+
+        <div class="training-card">
+            <h3>Career Path Guidance</h3>
+            <p class="desc">Get the right direction based on your skills & interests.</p>
+            <a href="{% url 'booking' %}" class="btn">Book Session</a>
+        </div>
+
+        <div class="training-card">
+            <h3>Job Market Insights</h3>
+            <p class="desc">Industry trends + professional growth strategies.</p>
+            <a href="{% url 'booking' %}" class="btn">Book Session</a>
+        </div>
+    </div>
+
+    <!-- Dynamic Training Programs -->
+    <h1 class="page-title">Training Programs</h1>
+
+    <div class="training-grid">
+        {% for p in programs %}
+        <div class="training-card">
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.short_description }}</p>
+            <p>Sessions: {{ p.sessions }} • Price: ₹{{ p.price }}</p>
+            <a href="{% url 'enroll_training' p.slug %}" class="btn">Enroll (Book)</a>
+        </div>
+        {% empty %}
+        <p style="text-align:center; color:#ccc;">No training programs added yet.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+

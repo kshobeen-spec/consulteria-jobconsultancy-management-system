@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Apply{% endblock %}
+
+{% block content %}
+<div class="apply-page">
+    <h1>Apply for a Service</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="position" placeholder="Service / Position" required>
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
+{% endblock %}

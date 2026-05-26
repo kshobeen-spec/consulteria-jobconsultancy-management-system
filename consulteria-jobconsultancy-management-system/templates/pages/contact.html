@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+    <h1>Contact Us</h1>
+    <p>Phone: <strong>+91 9876543210</strong></p>
+    <p>Email: <strong>info@consulteria.com</strong></p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+{% endblock %}

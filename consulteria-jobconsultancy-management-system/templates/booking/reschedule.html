@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Reschedule booking for {{ booking.full_name }}</h2>
+<form method="post">{% csrf_token %}
+    <label>New date</label><input type="date" name="date" required>
+    <label>New time</label><input type="time" name="time">
+    <label>Reason (optional)</label><textarea name="reason"></textarea>
+    <button type="submit">Reschedule</button>
+</form>
+{% endblock %}

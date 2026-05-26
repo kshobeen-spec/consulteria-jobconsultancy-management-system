@@ -1,0 +1,254 @@
+/* ===========================
+   General Styles
+=========================== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FCFCFE; /* Cloud White */
+    color: #3C3C4A; /* Soft Charcoal */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   Header & Navigation
+=========================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #FCFCFE; /* Cloud White */
+    box-shadow: 0 2px 6px rgba(60, 60, 74, 0.1); /* Soft shadow */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+    color: #BFAFE6; /* Lavender Mist */
+}
+
+/* ===========================
+   Buttons
+=========================== */
+button {
+    background: #BFAFE6; /* Lavender Mist */
+    color: #FCFCFE; /* Cloud White */
+    border: none;
+    border-radius: 12px;
+    padding: 10px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #F6CFE6; /* Blush Pink */
+}
+
+/* ===========================
+   Forms
+=========================== */
+input, textarea, select {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #DADAE2; /* Silver Glow */
+    background: #FCFCFE;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #BFAFE6; /* Lavender Mist */
+    outline: none;
+}
+
+/* ===========================
+   Containers / Pages
+=========================== */
+.auth-container, .apply-page, .booking-page, .contact-page, 
+.profile-page, .appointments-page, .training-page, .about-page {
+    background: #FCFCFE;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(60, 60, 74, 0.05);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+h1, h2 {
+    color: #3C3C4A;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ===========================
+   Messages
+=========================== */
+.msg {
+    background-color: #F6CFE6;
+    color: #3C3C4A;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ===========================
+   Footer
+=========================== */
+.footer {
+    background-color: #FCFCFE;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #3C3C4A;
+    border-top: 1px solid #DADAE2;
+    margin-top: 50px;
+}
+
+/* ===========================
+   Misc / Lists
+=========================== */
+ul {
+    padding-left: 0;
+}
+
+ul li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCFCFE;
+    color: #3C3C4A;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #FCFCFE;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #F6CFE6;
+    color: #3C3C4A;
+    padding: 25px;
+    border-radius: 12px;
+    flex: 1 1 200px;
+    max-width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Table */
+.recent-bookings table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #FCFCFE;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.recent-bookings th, .recent-bookings td {
+    padding: 12px;
+    text-align: left;
+}
+
+.recent-bookings th {
+    background-color: #BFAFE6;
+    color: #FCFCFE;
+}
+
+.recent-bookings tr:nth-child(even) {
+    background-color: #F6CFE6;
+}
+.booking-confirm-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.booking-confirm-card {
+    max-width: 520px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    background: linear-gradient(180deg, #BFAFE6, #F6CFE6);
+    color: #3C3C4A;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-back-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    background: #fff;
+    border-radius: 10px;
+    color: #BFAFE6;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.btn-back-home:hover {
+    background: #fafafa;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+

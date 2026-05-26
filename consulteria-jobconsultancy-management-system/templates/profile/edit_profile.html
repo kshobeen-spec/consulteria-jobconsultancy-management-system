@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile — Consulteria{% endblock %}
+
+{% block content %}
+<div class="profile-wrapper">
+    <div class="profile-card">
+
+        <h2>Edit Profile</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label>First Name</label>
+            <input type="text" name="first_name" value="{{ user.first_name|default:'' }}" required>
+
+            <label>Last Name</label>
+            <input type="text" name="last_name" value="{{ user.last_name|default:'' }}" required>
+
+            <label>Email</label>
+            <input type="email" name="email" value="{{ user.email|default:'' }}" required>
+
+            <label>Phone</label>
+            <input type="text" name="phone" value="{{ profile.phone|default:'' }}">
+
+            <label>Bio</label>
+            <textarea name="bio" rows="4">{{ profile.bio|default:'' }}</textarea>
+
+            <label>Profile Picture</label>
+            <input type="file" name="image">
+
+            {% if profile.image and profile.image.name != 'default_profile.png' %}
+                <img src="{{ profile.image.url }}" class="profile-pic-preview" alt="Current profile picture">
+            {% else %}
+                <img src="{% static 'images/default_profile.png' %}" class="profile-pic-preview" alt="Default profile picture">
+            {% endif %}
+
+            <button class="btn-lavender" type="submit">Save Changes</button>
+            <a href="{% url 'profile' %}" class="btn-outline" style="margin-left:10px;">Cancel</a>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

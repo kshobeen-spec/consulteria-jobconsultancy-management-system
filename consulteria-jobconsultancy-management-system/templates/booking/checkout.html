@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="checkout-wrapper">
+
+    <h1 class="checkout-title">Secure Payment</h1>
+    <p class="checkout-subtitle">Select a plan and complete your payment to confirm your consultation.</p>
+
+    <div class="checkout-box">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <h3>Select a Payment Plan</h3>
+            <div class="plans-wrapper">
+                {% for plan in plans %}
+                <label class="plan-option">
+                    <input type="radio" name="plan_id" value="{{ plan.id }}" {% if forloop.first %}checked{% endif %}>
+                    <div class="plan-info">
+                        <span class="plan-name">{{ plan.name }}</span>
+                        <span class="plan-desc">{{ plan.desc }}</span>
+                        <span class="plan-amount">₹{{ plan.amount }}</span>
+                    </div>
+                </label>
+                {% endfor %}
+            </div>
+
+            <h3>Card Details</h3>
+
+            <input type="text" name="card_number" placeholder="Card Number e.g. 1234 5678 9012 3456" class="checkout-input" required>
+            <input type="text" name="expiry" placeholder="Expiry Date MM/YY e.g. 05/26" class="checkout-input" required>
+            <input type="password" name="cvv" placeholder="CVV e.g. 123" class="checkout-input" required>
+            <input type="text" name="name_on_card" placeholder="Name on Card e.g. John Doe" class="checkout-input" required>
+
+            <button class="pay-btn" type="submit">Pay Now</button>
+        </form>
+
+        <p class="secure-text">🔒 Your payment is secure and encrypted.</p>
+    </div>
+
+</div>
+
+<style>
+.checkout-wrapper {
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #E0E0E0;
+    background: #121212;
+}
+
+.checkout-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #BFAFE6;
+}
+
+.checkout-subtitle {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #CCCCCC;
+}
+
+.checkout-box {
+    background: #1E1E2F;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.plans-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.plan-option {
+    display: flex;
+    align-items: center;
+    border: 1px solid #3C3C4A;
+    border-radius: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background: #2A2A3C;
+}
+
+.plan-option:hover {
+    border-color: #BFAFE6;
+    background: #3B2A4A;
+}
+
+.plan-option input {
+    margin-right: 15px;
+}
+
+.plan-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 500;
+}
+
+.plan-name {
+    font-size: 16px;
+    color: #E0E0E0;
+}
+
+.plan-desc {
+    font-size: 14px;
+    color: #B0B0B0;
+}
+
+.plan-amount {
+    font-size: 16px;
+    color: #BFAFE6;
+    font-weight: 600;
+}
+
+.checkout-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #3C3C4A;
+    background: #2A2A3C;
+    color: #E0E0E0;
+    font-size: 15px;
+}
+
+.checkout-input::placeholder {
+    color: #B0B0B0;
+}
+
+.pay-btn {
+    background: #BFAFE6;
+    color: #1E1E2F;
+    padding: 16px 0;
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.pay-btn:hover {
+    opacity: 0.85;
+}
+
+.secure-text {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #B0B0B0;
+}
+</style>
+
+{% endblock %}
+

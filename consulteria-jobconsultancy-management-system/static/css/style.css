@@ -1,0 +1,684 @@
+/* ===========================
+   General Reset
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background-color: #1C1C2A; /* Dark Luxe Background */
+    color: #FCFCFE; /* White text */
+    line-height: 1.6;
+}
+
+/* ===========================
+   Header
+=========================== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #2E2E3D; /* Bold dark header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.logo-img {
+    height: 60px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav ul li a {
+    color: #FCFCFE;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav ul li a:hover {
+    color: #BFAFE6;
+    text-shadow: 0 0 5px #BFAFE6;
+}
+
+/* ===========================
+   Hero Section
+=========================== */
+.hero {
+    background: linear-gradient(135deg, #BFAFE6 0%, #F6CFE6 100%);
+    color: #1C1C2A;
+    text-align: center;
+    padding: 180px 20px;
+    border-radius: 20px;
+    margin: 50px auto;
+    max-width: 1100px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.hero-btn {
+    background: #1C1C2A;
+    color: #BFAFE6;
+    font-weight: 700;
+    padding: 18px 45px;
+    border-radius: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.hero-btn:hover {
+    background: #705e9e;
+    color: #1C1C2A;
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+/* ===========================
+   Footer
+=========================== */
+.footer {
+    background: #2E2E3D;
+    color: #FCFCFE;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 14px;
+    margin-top: 50px;
+    border-top: 2px solid #BFAFE6;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+button {
+    background: #BFAFE6;
+    color: #1C1C2A;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #FCFCFE;
+    color: #BFAFE6;
+}
+
+/* ===========================
+   Forms
+=========================== */
+input, textarea, select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #BFAFE6;
+    background: #2E2E3D;
+    color: #FCFCFE;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #F6CFE6;
+}
+
+/* ===========================
+   Containers
+=========================== */
+.auth-container, .apply-page, .booking-page, .contact-page, 
+.profile-page, .appointments-page, .training-page, .about-page {
+    background: #2E2E3D;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+h1, h2 {
+    color: #FCFCFE;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.booking-page {
+    background: linear-gradient(135deg, #e6a0cb, #F6CFE6);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 700px;
+    margin: 50px auto;
+    color: #FCFCFE;
+    box-shadow: 0 10px 40px rgba(60,60,74,0.1);
+}
+
+.booking-page h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.booking-page form input,
+.booking-page form textarea,
+.booking-page form select {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+}
+
+.booking-page .hero-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    background: #b6a3e7;
+    color: #3C3C4A;
+    font-weight: 700;
+    padding: 15px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.booking-page .hero-btn:hover {
+    background: #F6CFE6;
+    color: #3C3C4A;
+    transform: scale(1.05);
+}
+
+.ai-feedback-box {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.ai-feedback-box pre {
+    white-space: pre-wrap;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+body {
+  background: #12121C;
+  font-family: Poppins, sans-serif;
+  color: white;
+  padding: 20px;
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.dash-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.dash-card {
+  background: #1E1E2E;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.dash-card h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #F6CFE6;
+}
+
+.number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #BFAFE6;
+}
+
+.booking-section {
+  margin-top: 40px;
+}
+
+.booking-section h2 {
+  color: #F6CFE6;
+  margin-bottom: 10px;
+}
+
+.booking-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-section li {
+  background: #1E1E2E;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+/* =======================
+   TABLE
+======================= */
+.recent-bookings h2 {
+    color: #f6cfe6; /* blush pink */
+    margin-bottom: 15px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: #1d1d2e;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fcfcfe;
+    font-size: 0.95rem;
+}
+
+table thead {
+    background: #2c2c44;
+}
+
+table th {
+    padding: 12px;
+    text-align: left;
+    color: #d8c9ff; /* softer lavender */
+    font-weight: 600;
+    border-bottom: 1px solid #3b3b55;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #3b3b55;
+}
+
+table tr:hover {
+    background: #2b2b41;
+}
+
+/* Empty message */
+.recent-bookings p {
+    color: #c8c8d9;
+}
+
+
+/* === Table === */
+.recent-bookings h2 {
+    margin-bottom: 15px;
+    color: #3C3C4A;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.recent-bookings table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.recent-bookings th, .recent-bookings td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.recent-bookings th {
+    background-color: #F6CFE6; /* Blush Pink */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Logo left, links right */
+    align-items: center;
+    padding: 20px 50px;
+    background: #2E2E3D;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #FCFCFE;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #BFAFE6;
+    text-shadow: 0 0 5px #BFAFE6;
+}
+
+
+/* ===== Training Panels ===== */
+.training-panels {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.panel-btn {
+    background: #BFAFE6;
+    color: #1d1d2e;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.panel-btn:hover {
+    background: #D8C9FF;
+}
+
+/* ===== Training Grid ===== */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.training-card {
+    background: #2E2E3D;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.2s ease-in-out;
+}
+
+.training-card:hover {
+    transform: translateY(-5px);
+}
+
+.training-card h3 {
+    color: #BFAFE6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.training-card .desc {
+    color: #FCFCFE;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.training-card .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #BFAFE6;
+    color: #1d1d2e;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.training-card .btn:hover {
+    background: #D8C9FF;
+}
+
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+body {
+    background: #1d1d2e;
+    color: #fcfcfe;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Generic page container */
+.profile-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Wrapper */
+.profile-wrapper {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+
+/* ===========================
+   PROFILE CARD
+=========================== */
+.profile-card {
+    background: #2E2E3D;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    text-align: center; /* THIS centers all text */
+}
+
+
+/* Header (image + name) */
+.profile-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #bfaee6; /* lavender */
+    margin-bottom: 15px;
+}
+
+.email {
+    color: #dadbe8;
+    font-size: 14px;
+}
+.profile-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+/* Edit Profile – Blush Pink */
+.edit-btn {
+    background: #F6CFE6;
+    color: #3C3C4A;
+}
+
+.edit-btn:hover {
+    background: #E8B8D8;
+}
+
+/* Logout – Lavender Mist */
+.logout-btn {
+    background: #BFAFE6;
+    color: #3C3C4A;
+}
+
+.logout-btn:hover {
+    background: #A89AD8;
+}
+
+/* ===========================
+   DETAILS SECTION
+=========================== */
+.details-section {
+    margin-top: 35px;
+}
+
+.details-section h3 {
+    color: #bfaee6;
+    font-size: 22px;
+    margin-bottom: 12px;
+    text-align: center;        /* center headings */
+}
+
+.details-section p {
+    text-align: center;        /* center info */
+    color: #d2d2e2;
+}
+
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.list li {
+    background: #2a2a3d;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    color: #fcfcfe;
+    text-align: center;
+}
+
+
+
+
+
+/* ===== Training Panels ===== */
+.training-panels {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.panel-btn {
+    background: #BFAFE6;
+    color: #1d1d2e;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.panel-btn:hover {
+    background: #D8C9FF;
+}
+
+/* ===== Training Grid ===== */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.training-card {
+    background: #2E2E3D;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.2s ease-in-out;
+}
+
+.training-card:hover {
+    transform: translateY(-5px);
+}
+
+.training-card h3 {
+    color: #BFAFE6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.training-card .desc {
+    color: #FCFCFE;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.training-card .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #BFAFE6;
+    color: #1d1d2e;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.training-card .btn:hover {
+    background: #D8C9FF;
+}

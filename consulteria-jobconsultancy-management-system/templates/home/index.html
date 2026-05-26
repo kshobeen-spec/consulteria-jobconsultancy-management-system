@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+{% block title %}Consulteria{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1 class="hero-logo">Consulteria</h1>
+    <p class="hero-tagline">Because You Deserve Better Opportunities.</p>
+    <a href="{% url 'signup' %}" class="hero-btn">Get Started</a>
+</section>
+{% endblock %}
+
+
+
+
+
+

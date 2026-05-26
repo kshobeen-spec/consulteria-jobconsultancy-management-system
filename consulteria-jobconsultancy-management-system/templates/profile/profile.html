@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Profile — Consulteria{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-wrapper">
+        <div class="profile-card">
+
+            <div class="profile-header">
+                {% if profile.image and profile.image.name != 'default_profile.png' %}
+                    <img src="{{ profile.image.url }}" class="profile-avatar" alt="Profile picture">
+                {% else %}
+                    <img src="{% static 'images/default_profile.png' %}" class="profile-avatar" alt="Default profile picture">
+                {% endif %}
+
+                <h2>{{ user.first_name|default:user.username }} {{ user.last_name }}</h2>
+                <p class="email">{{ user.email }}</p>
+            </div>
+
+            <div class="details-section">
+                <h3>Personal Details</h3>
+
+                <p><strong>Phone:</strong>
+                    {% if profile.phone %}
+                        {{ profile.phone }}
+                    {% else %}
+                        Not added
+                    {% endif %}
+                </p>
+
+                <p><strong>Bio:</strong>
+                    {% if profile.bio %}
+                        {{ profile.bio }}
+                    {% else %}
+                        No bio added yet.
+                    {% endif %}
+                </p>
+            </div>
+
+            <div class="details-section">
+                <h3>Your Consultations</h3>
+                <p>No consultations booked.</p>
+            </div>
+
+            <div class="details-section">
+                <h3>Your Training Sessions</h3>
+                <p>No training enrolled.</p>
+            </div>
+
+            <div class="action-btns">
+                <a href="{% url 'edit_profile' %}" class="action-btn edit-btn">Edit Profile</a>
+                <a href="{% url 'logout' %}" class="action-btn logout-btn">Logout</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+

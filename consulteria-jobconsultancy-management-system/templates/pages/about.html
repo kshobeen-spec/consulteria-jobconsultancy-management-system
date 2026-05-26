@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="about-page" style="font-family:'Poppins', sans-serif; max-width:1200px; margin:0 auto; padding:50px 20px;">
+
+    <!-- Hero Section -->
+    <section style="text-align:center; margin-bottom:50px; background:#F6CFE6; padding:50px 30px; border-radius:15px; color:#3C3C4A;">
+        <h1 style="font-size:2.8rem; margin-bottom:20px;"><strong>Consulteria</strong></h1>
+        <p style="font-size:1.1rem; max-width:800px; margin:0 auto; line-height:1.7;">
+            At <strong>Consulteria</strong>, we empower individuals with personalized career guidance, practical training, 
+            and AI-driven insights to unlock their potential. From resume optimization to interview readiness, we guide you every step of the way.
+        </p>
+    </section>
+
+    <!-- Vision / Mission / Values -->
+    <section style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-bottom:50px;">
+        <div style="background:#BFAFE6; padding:25px; border-radius:12px; flex:1; min-width:220px; text-align:center; color:#3C3C4A;">
+            <h2 style="margin-bottom:10px;">Our Vision</h2>
+            <p>Make career guidance accessible, impactful, and empowering for everyone seeking growth.</p>
+        </div>
+        <div style="background:#F6CFE6; padding:25px; border-radius:12px; flex:1; min-width:220px; text-align:center; color:#3C3C4A;">
+            <h2 style="margin-bottom:10px;">Our Mission</h2>
+            <p>Provide actionable insights, expert consultations, and AI-powered resume analysis that unlock opportunities.</p>
+        </div>
+        <div style="background:#BFAFE6; padding:25px; border-radius:12px; flex:1; min-width:220px; text-align:center; color:#3C3C4A;">
+            <h2 style="margin-bottom:10px;">Our Values</h2>
+            <p>Integrity, growth, personalization, and innovation are at the heart of everything we do.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section style="text-align:center; margin-bottom:50px;">
+        <h2 style="font-size:2.2rem; color:#3C3C4A; margin-bottom:30px;">What We Offer</h2>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+            <div style="background:#FCFCFE; color:#3C3C4A; padding:20px; border-radius:12px; width:220px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom:10px; color:#BFAFE6;">Career Consultation</h3>
+                <p>Personalized guidance to align your strengths, goals, and opportunities.</p>
+            </div>
+            <div style="background:#FCFCFE; color:#3C3C4A; padding:20px; border-radius:12px; width:220px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom:10px; color:#F6CFE6;">AI Resume Screening</h3>
+                <p>Instant resume analysis highlighting areas of improvement and strengths.</p>
+            </div>
+            <div style="background:#FCFCFE; color:#3C3C4A; padding:20px; border-radius:12px; width:220px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom:10px; color:#BFAFE6;">Interview Preparation</h3>
+                <p>Mock interviews, tips, and techniques to boost your confidence and success rate.</p>
+            </div>
+            <div style="background:#FCFCFE; color:#3C3C4A; padding:20px; border-radius:12px; width:220px; box-shadow:0 3px 10px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom:10px; color:#F6CFE6;">Training Sessions</h3>
+                <p>Skill-building workshops and training to enhance your professional growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="text-align:center; padding:40px 20px; background:#BFAFE6; border-radius:15px; color:#3C3C4A;">
+        <h2 style="font-size:1.9rem; margin-bottom:15px;">Ready to Take the Next Step?</h2>
+        <p style="max-width:600px; margin:0 auto 20px; font-size:1rem;">Book a consultation today and get expert guidance tailored to your goals.</p>
+        <a href="{% url 'booking' %}" style="background:#F6CFE6; color:#3C3C4A; padding:12px 28px; border-radius:8px; text-decoration:none; font-weight:600;">Book Now</a>
+    </section>
+
+</div>
+{% endblock %}

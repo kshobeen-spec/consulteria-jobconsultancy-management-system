@@ -1,0 +1,1 @@
+<img src="{% static 'images/logo.png' %}" alt="Consulteria Logo" style="height: 55px;">

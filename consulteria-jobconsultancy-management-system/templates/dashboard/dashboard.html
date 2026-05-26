@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="dashboard-container">
+
+    <h1 class="dash-title">Welcome, {{ user.username }}</h1>
+
+    <div class="dash-grid">
+
+        <!-- Total Bookings -->
+        <div class="dash-card">
+            <h2>Total Bookings</h2>
+            <p class="number">{{ total_bookings }}</p>
+        </div>
+
+        <!-- Latest AI Score -->
+        <div class="dash-card">
+            <h2>Latest AI Resume Score</h2>
+            <p class="number">
+                {% if latest_score %} {{ latest_score }}% {% else %} No Score Yet {% endif %}
+            </p>
+        </div>
+
+        <!-- Average AI Score -->
+        <div class="dash-card">
+            <h2>Average AI Score</h2>
+            <p class="number">
+                {% if avg_score %} {{ avg_score|floatformat:1 }}% {% else %} No Data {% endif %}
+            </p>
+        </div>
+
+        <!-- Latest Booking -->
+        <div class="dash-card">
+            <h2>Latest Booking</h2>
+            {% if latest_booking %}
+                <p><strong>{{ latest_booking.service }}</strong></p>
+                <p>{{ latest_booking.date }} at {{ latest_booking.time }}</p>
+            {% else %}
+                <p>No bookings yet</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+   <h2>Upcoming Bookings</h2>
+{% if upcoming %}
+<ul>
+    {% for b in upcoming %}
+    <li>
+        <strong>{{ b.service }}</strong> — {{ b.date }} at {{ b.time }}  
+        <br>Status: <span class="status">{{ b.status }}</span>
+        {% if b.admin_notes %}
+        <br><small>Admin Notes: {{ b.admin_notes }}</small>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No upcoming bookings</p>
+{% endif %}
+
+<h2>Previous Bookings</h2>
+{% if past %}
+<ul>
+    {% for b in past %}
+    <li>
+        <strong>{{ b.service }}</strong> — {{ b.date }}
+        <br>Status: <span class="status">{{ b.status }}</span>
+        {% if b.admin_notes %}
+        <br><small>Admin Notes: {{ b.admin_notes }}</small>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No previous bookings</p>
+{% endif %}
+
+  </div>
+
+  
+</div>
+
+<h2>Recent Payments</h2>
+<ul>
+  {% for p in payments %}
+    <li>{{ p.created_at }} — {{ p.amount }} — {{ p.status }}</li>
+  {% empty %}
+    <li>No payments yet.</li>
+  {% endfor %}
+</ul>
+
+<h2>Recent Cancellations / Reschedules</h2>
+<ul>
+  {% for c in recent_cancellations %}
+    <li>{{ c.action }} — {{ c.booking.service }} — {{ c.created_at }}{% if c.new_date %} → {{ c.new_date }} at {{ c.new_time }}{% endif %}</li>
+  {% empty %}
+    <li>None</li>
+  {% endfor %}
+</ul>
+
+{% if latest_booking.admin_notes %}
+<div class="admin-notes-box">
+    <h3>Admin Notes</h3>
+    <p>{{ latest_booking.admin_notes }}</p>
+</div>
+{% endif %}
+
+
+{% endblock %}
+

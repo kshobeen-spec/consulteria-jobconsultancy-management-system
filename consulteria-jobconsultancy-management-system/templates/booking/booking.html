@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book a Consultation{% endblock %}
+
+{% block content %}
+<div class="booking-page">
+    <h2>Book Your Consultation</h2>
+
+    {% if messages %}
+        {% for m in messages %}
+            <div class="msg">{{ m }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="" method="POST" enctype="multipart/form-data" class="booking-form">
+        {% csrf_token %}
+        <label>Full Name</label>
+        <input type="text" name="name" value="{{ booking.full_name|default:'' }}" required>
+
+        <label>Email</label>
+        <input type="email" name="email" value="{{ booking.email|default:'' }}" required>
+
+        <label>Phone</label>
+        <input type="text" name="phone" value="{{ booking.phone|default:'' }}" required>
+
+        <label>Service</label>
+        <select name="service" required>
+            <option value="">Select a Service</option>
+            <option value="Career Consultation" {% if booking.service == "Career Consultation" %}selected{% endif %}>Career Consultation</option>
+            <option value="Resume Screening" {% if booking.service == "Resume Screening" %}selected{% endif %}>Resume Screening</option>
+            <option value="Interview Preparation" {% if booking.service == "Interview Preparation" %}selected{% endif %}>Interview Preparation</option>
+            <option value="Training Session" {% if booking.service == "Training Session" %}selected{% endif %}>Training Session</option>
+        </select>
+
+        <label>Preferred Date</label>
+        <input type="date" name="date" value="{{ booking.date|default:'' }}" required>
+
+        <label>Preferred Time</label>
+        <input type="time" name="time" value="{{ booking.time|default:'' }}" required>
+
+        <label>Message / Context</label>
+        <textarea name="message" rows="4">{{ booking.message|default:'' }}</textarea>
+
+        <label>Upload Resume (PDF)</label>
+        <input type="file" name="resume" accept="application/pdf">
+        
+
+        <button class="hero-btn" type="submit">Submit Booking & Analyse Resume</button>
+    </form>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="hidden" name="service" value="{{ service }}">
+  <!-- existing inputs: name, email, phone, date, time, resume -->
+  ...
+  <button type="submit">Book Now</button>
+</form>
+
+<!-- Modal -->
+{% if ai_result %}
+<div id="aiResultModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Booking Submitted Successfully!</h3>
+        <h4>AI Resume Analysis</h4>
+        <p><strong>Score:</strong> {{ ai_result.score }}</p>
+        <p><strong>Feedback:</strong> {{ ai_result.feedback }}</p>
+        {% if ai_result.extracted_text_preview %}
+            <p><strong>Text Preview:</strong></p>
+            <pre>{{ ai_result.extracted_text_preview }}</pre>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+
+<!-- Modal CSS -->
+<style>
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content {
+    background: #FCFCFE; /* Cloud White */
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    color: #3C3C4A; /* Soft Charcoal */
+}
+
+.modal-content h3, .modal-content h4 {
+    margin-top: 0;
+    color: #BFAFE6; /* Lavender Mist */
+}
+
+.modal-content pre {
+    white-space: pre-wrap;
+    background: #F6CFE6; /* Blush Pink */
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    color: #3C3C4A;
+}
+
+.close {
+    color: #BFAFE6;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #F6CFE6;
+}
+</style>
+
+<!-- Modal JS -->
+<script>
+{% if ai_result %}
+var modal = document.getElementById("aiResultModal");
+var span = modal.querySelector(".close");
+
+// Show modal automatically
+modal.style.display = "block";
+
+// Close modal on X
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Close modal on outside click
+window.onclick = function(event) {
+    if (event.target == modal) modal.style.display = "none";
+}
+{% endif %}
+</script>
+
+{% endblock %}

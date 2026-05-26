@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cancel booking for {{ booking.full_name }}</h2>
+<form method="post">{% csrf_token %}
+    <label>Reason</label><textarea name="reason"></textarea>
+    <button type="submit">Cancel Booking</button>
+</form>
+{% endblock %}
